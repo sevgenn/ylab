@@ -288,4 +288,4 @@ def run(n=10, q=5):
 
 
 if __name__ == '__main__':
-    run(2)
+    run()
