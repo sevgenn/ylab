@@ -6,8 +6,11 @@
 
 #### Создать базу данных Postgresql
 psql -U postgres
+
 CREATE DATABASE cookbook;
+
 CREATE USER admin with NOSUPERUSER PASSWORD 'admin';
+
 GRANT ALL PRIVILEGES ON DATABASE cookbook TO admin;
 
 ## Запуск контейнера Docker
