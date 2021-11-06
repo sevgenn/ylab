@@ -2,24 +2,20 @@ version: '3.8'
 services:
 
   web:
-    # Взять Dockerfile из каталога app
-    build: ./cookbook_root
-    # Запустить сервер
-    command: python ./cookbook_root/manage.py runserver 0.0.0.0:8000
-    # Папка для перемещения данных из каталога
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/app
+      - .:/site_docker
     ports:
-      - "8000:8000"
+      - 8000:8000
     depends_on:
       - db
 
   db:
-    # Образ базы
-    image: postgres:12.8
+    image: postgres:14.0
     environment:
       POSTGRES_DB: cookbook
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
     ports:
-      - "5432"
+      - 5433:5432
